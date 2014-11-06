@@ -1,0 +1,7 @@
+{
+    "name": "M12.FoundationSite",
+    "dependencies": {
+        "foundation": "5.4.7",
+        "Font-Awesome": "~4.2"
+    }
+}

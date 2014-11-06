@@ -1,0 +1,6 @@
+# Ignore everything in this directory
+# Files in this location are managed by Gulp
+*
+
+# Except this file
+!.gitignore

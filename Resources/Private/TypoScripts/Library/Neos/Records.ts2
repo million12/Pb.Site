@@ -1,0 +1,13 @@
+#
+# Ported from Neos 1.2
+# Can be removed after project is migrated 1.2.
+#
+prototype(TYPO3.Neos.NodeTypes:Records) {
+	templatePath = 'resource://M12.TypostrapSite/Private/Templates/NodeTypes/Records.html'
+
+	records = TYPO3.TypoScript:Collection {
+		collection = ${q(node).property('records')}
+		itemRenderer = TYPO3.Neos:ContentCase
+		itemName = 'node'
+	}
+}

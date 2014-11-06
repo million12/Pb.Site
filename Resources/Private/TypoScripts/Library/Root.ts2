@@ -1,37 +1,65 @@
+include: Neos/Page.ts2
+include: Neos/Records.ts2
+
 /**
- * Root TypoScript template for the Typostrap site
+ * Root TypoScript template for the site
  */
 page = Page {
+	@override.templateMeta      = 'resource://M12.FoundationSite/Private/Templates/Page/Meta.html'
+	@override.templateDefault   = 'resource://M12.FoundationSite/Private/Templates/Page/PageDefault.html'
+#	@override.isDEV = ${Configuration.setting('TYPO3.Flow.core.context') == 'Development'}
+	
 	head {
-		stylesheets.site = TYPO3.TypoScript:Template {
-			templatePath = 'resource://M12.FoundationSite/Private/Templates/Page/Default.html'
+		metadata = TYPO3.TypoScript:Template {
+			templatePath = ${templateMeta}
+			sectionName  = 'metadata'
+			@position    = 'start'
+		}
+		
+		stylesheets = TYPO3.TypoScript:Template {
+			templatePath = ${templateMeta}
 			sectionName = 'stylesheets'
 		}
 
-		javascripts.site = TYPO3.TypoScript:Template {
-			templatePath = 'resource://M12.FoundationSite/Private/Templates/Page/Default.html'
+		javascripts = TYPO3.TypoScript:Template {
+			templatePath = ${templateMeta}
 			sectionName = 'headScripts'
 		}
+		
+		titleTag.content = ${q(documentNode).parents().get() ? q(node).property('title') + ' - ' + q(site).property('title') : q(site).property('title')}
 	}
 
 	body {
-		templatePath = 'resource://M12.FoundationSite/Private/Templates/Page/Default.html'
+		templatePath = ${templateDefault}
 		sectionName = 'body'
+		
 		parts {
 			menu = Menu
 			breadcrumb = Breadcrumb
 		}
-		// These are your content areas, you can define as many as you want, just name them and the nodePath.
 		content {
+			top = ContentCollection {
+				nodePath = ${q(site).children('top').property('_path')}
+			}
 			// The default content section
 			main = PrimaryContent {
 				nodePath = 'main'
 			}
+			footer = ContentCollection {
+				nodePath = ${q(site).children('footer').property('_path')}
+			}
 		}
 
 		javascripts.site = TYPO3.TypoScript:Template {
-			templatePath = 'resource://M12.FoundationSite/Private/Templates/Page/Default.html'
+			templatePath = ${templateMeta}
 			sectionName = 'bodyScripts'
 		}
 	}
+}
+
+container < page {
+	@override.templateDefault   = 'resource://M12.FoundationSite/Private/Templates/Page/PageContainer.html'
+}
+container-top-footer < container {
+	@override.templateDefault   = 'resource://M12.FoundationSite/Private/Templates/Page/PageContainerTopFooter.html'
 }

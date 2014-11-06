@@ -1,0 +1,33 @@
+{
+    "vendorsDir": "BowerComponents",
+    "source": {
+        "styles": "Resources/Private/Styles/**/",
+        "vendorScripts": [],
+        "scripts": [
+            "Resources/Private/Scripts/App.js"
+        ],
+        "fonts": [
+            "BowerComponents/Font-Awesome/fonts/*.*"
+        ],
+        "includePaths": [
+            "BowerComponents",
+            "BowerComponents/foundation/scss",
+            "BowerComponents/Font-Awesome/scss"
+        ]
+    },
+    "dest": {
+        "styles": "Resources/Public/Styles",
+        "scripts": "Resources/Public/Scripts",
+        "images": "/_Resources/Static/Packages/M12.FoundationSite/Images",
+        "fonts": "Resources/Public/Fonts"
+    },
+    "watch": {
+        "styles": "Resources/Private/Styles/**/*",
+        "scripts": "Resources/Private/Scripts/**/*"
+    },
+    "clear": [
+        "Resources/Public/Styles/*",
+        "Resources/Public/Scripts/*",
+        "Resources/Public/Fonts/*"
+    ]
+}

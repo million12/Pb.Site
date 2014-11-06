@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+@import 'font-awesome';
+
+@keyframes shake {
+	0%, 25%, 100% {
+		transform: translate3d(0, 0, 0);
+	}
+	5%, 15% {
+		transform: translate3d(0, -6px, 0);
+	}
+	10%, 20% {
+		transform: translate3d(0, 6px, 0);
+	}
+}
+
+body.neos-backend {
+	// Add top padding while in Neos backend, so the toolbar with [+] for adding new content is visible
+	padding-top: 2.2rem;
+}
+
+body > main {
+	> .neos-contentcollection {
+		// Improve a bit UX when there's no content at all yet
+		> .neos.neos-empty-contentcollection-overlay {
+			$height: 41px;
+			height: $height;
+			margin-left: 2px;
+			margin-right: 2px;
+	
+			&:before {
+				@extend .#{$fa-css-prefix};
+				@extend .#{$fa-css-prefix}-2x;
+				float: right;
+				padding: 0.5rem 1.2rem;
+				content: $fa-var-angle-double-up;
+				color: #666;
+				animation: shake 2.5s infinite;
+				animation-delay: 2s;
+			}
+			&:after {
+				content: 'Click here to start';
+				line-height: $height;
+				float: right;
+				color: #666;
+			}
+		}
+	}
+}
