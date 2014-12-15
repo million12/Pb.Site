@@ -1,6 +1,9 @@
 @charset "UTF-8";
 
-@import 'font-awesome';
+@import 'settings-custom';
+
+// Make FontAwesome variables available here 
+@import 'Font-Awesome/scss/variables';
 
 @keyframes shake {
 	0%, 25%, 100% {
