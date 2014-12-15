@@ -1,14 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-	<site nodeName="neos-typostrap-site" type="TYPO3.Neos.NodeTypes:Page">
-		<properties>
-			<name>Home Page</name>
-			<title><![CDATA[Home Page]]></title>
-			<state>1</state>
-			<siteResourcesPackageKey>M12.FoundationSite</siteResourcesPackageKey>
-		</properties>
-		<node type="TYPO3.Neos:ContentCollection" nodeName="top"></node>
-		<node type="TYPO3.Neos:ContentCollection" nodeName="main"></node>
-		<node type="TYPO3.Neos:ContentCollection" nodeName="footer"></node>
-	</site>
+ <site name="Home Page" state="1" siteResourcesPackageKey="M12.FoundationSite" siteNodeName="neos-typostrap-site">
+  <nodes formatVersion="2.0">
+   <node identifier="07a64f05-5042-47a1-321f-51d3e47421ba" nodeName="neos-typostrap-site">
+    <variant sortingIndex="100" workspace="live" nodeType="TYPO3.Neos.NodeTypes:Page" version="3" removed="" hidden="" hiddenInIndex="">
+     <dimensions>
+      <language>en_US</language>
+     </dimensions>
+     <accessRoles __type="array"/>
+     <properties>
+      <title __type="string">Home Page</title>
+      <uriPathSegment __type="string">index</uriPathSegment>
+     </properties>
+    </variant>
+    <node identifier="86d57333-9214-db50-6cf3-06db286e6395" nodeName="footer">
+     <variant sortingIndex="300" workspace="live" nodeType="TYPO3.Neos:ContentCollection" version="2" removed="" hidden="" hiddenInIndex="">
+      <dimensions>
+       <language>en_US</language>
+      </dimensions>
+      <accessRoles __type="array"/>
+      <properties/>
+     </variant>
+    </node>
+    <node identifier="35b1ebb8-f8fc-d12f-cd2d-2a961ed0171f" nodeName="main">
+     <variant sortingIndex="200" workspace="live" nodeType="TYPO3.Neos:ContentCollection" version="2" removed="" hidden="" hiddenInIndex="">
+      <dimensions>
+       <language>en_US</language>
+      </dimensions>
+      <accessRoles __type="array"/>
+      <properties/>
+     </variant>
+    </node>
+    <node identifier="e20fda07-c597-299b-92d8-4cf8236ce56e" nodeName="top">
+     <variant sortingIndex="100" workspace="live" nodeType="TYPO3.Neos:ContentCollection" version="2" removed="" hidden="" hiddenInIndex="">
+      <dimensions>
+       <language>en_US</language>
+      </dimensions>
+      <accessRoles __type="array"/>
+      <properties/>
+     </variant>
+    </node>
+   </node>
+  </nodes>
+ </site>
 </root>
