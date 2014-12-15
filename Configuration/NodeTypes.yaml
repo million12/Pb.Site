@@ -3,6 +3,7 @@
     layout:
       ui:
         inspector:
+          group: layout
           editorOptions:
             values:
               '':
@@ -14,6 +15,7 @@
     subpageLayout:
       ui:
         inspector:
+          group: layout
           editorOptions:
             values:
               '':
