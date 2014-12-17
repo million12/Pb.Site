@@ -5,7 +5,6 @@
 <head>
 	<f:section name="metadata">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="dns-prefetch" href="http://cdnjs.cloudflare.com">
 	</f:section>
 	
 	<f:section name="stylesheets">
@@ -16,15 +15,11 @@
 	</f:section>
 	
 	<f:section name="headScripts">
-		<script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/vendor/modernizr.js"></script>
+		<script src="{f:uri.resource(path: 'Scripts/App.js', package: 'M12.FoundationSite')}"></script>
 	</f:section>
 </head>
 <body>
 	<f:section name="bodyScripts">
-		<script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/vendor/jquery.js"></script>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation.min.js"></script>
-		
-		<script src="{f:uri.resource(path: 'Scripts/App.js', package: 'M12.FoundationSite')}"></script>
 	</f:section>
 </body>
 </html>

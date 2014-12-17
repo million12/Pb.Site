@@ -2,7 +2,11 @@
     "vendorsDir": "BowerComponents",
     "source": {
         "styles": "Resources/Private/Styles/**/",
-        "vendorScripts": [],
+        "vendorScripts": [
+            "BowerComponents/modernizr/modernizr.js",
+            "BowerComponents/jquery/dist/jquery.js",
+            "BowerComponents/foundation/js/foundation.js",
+        ],
         "scripts": [
             "Resources/Private/Scripts/App.js"
         ],
