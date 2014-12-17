@@ -1,2 +1,11 @@
 // Set FontAwesome path
-$fa-font-path: "../Fonts";
+$fa-font-path: '../Fonts';
+
+// Slick.js settings
+$slick-font-family: 'FontAwesome';
+$slick-prev-character: '\f137' !default;
+$slick-next-character: '\f138' !default;
+$slick-dot-character: '\f111' !default;
+$slick-arrow-color: #333;
+$slick-dot-color: #333;
+$slick-dot-size: 8px;

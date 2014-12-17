@@ -6,6 +6,7 @@
             "BowerComponents/modernizr/modernizr.js",
             "BowerComponents/jquery/dist/jquery.js",
             "BowerComponents/foundation/js/foundation.js",
+            "BowerComponents/slick.js/slick/slick.js"
         ],
         "scripts": [
             "Resources/Private/Scripts/App.js"
