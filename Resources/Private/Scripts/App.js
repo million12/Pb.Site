@@ -1,4 +1,6 @@
-// Run Zurb Foundation
+$(document).ready(function(){
+	'use strict';
 
-// For now put it directly in HTML template, to save 1 extra request.
-$(document).foundation();
+	// Run Zurb Foundation
+	$(document).foundation();
+});
