@@ -1,19 +1,44 @@
-$(document).ready(function(){
+(function (App) {
 	'use strict';
 
-	// Run Zurb Foundation
-	$(document).foundation();
-});
+	/**
+	 * M12.FoundationSite app
+	 */
+	App = {
+		/**
+		 * Called on page load, to initialise all necessary components
+		 */
+		init: function() {
+			// init zurb foundation
+			$(document).foundation();
+		},
 
-/**
- * Invoked when page finished loading (via AJAX) in Neos back-end.
- */
-document.addEventListener('Neos.PageLoaded', function () {
-	'use strict';
+		/**
+		 * Initialise some localStorage variables,
+		 * so Neos is by default pre-configured (e.g. Structure panel is opened)
+		 */
+		initNeosLocalStorage: function() {
+			if (Modernizr.localstorage) {
+				// Open the 'Structure' panel by default
+				if (null === localStorage.getItem('contextStructureMode')) {
+					localStorage.setItem('contextStructureMode', false);
+				}
+			}
+		}
+	};
 	
-	// Re-initialise Foundation again
-	// This is needed to properly build newly added on page JS components (slider, tabs etc)
-	// @TODO: Do we need to call it with some timeout? Seems like it works OK without it.
-	$(document).foundation();
-	
-}, false);
+	/**
+	 * Invoked when page finished loading (via AJAX) in Neos back-end.
+	 */
+	document.addEventListener('Neos.PageLoaded', function () {
+		App.init();
+	}, false);
+
+	/**
+	 * Document ready: initialise all necessary components
+	 */
+	$(document).ready(function () {
+		App.initNeosLocalStorage();
+		App.init();
+	});
+})();
