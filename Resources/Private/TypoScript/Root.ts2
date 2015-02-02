@@ -1,5 +1,4 @@
-include: Neos/Page.ts2
-include: Neos/Records.ts2
+include: Neos/*
 
 /**
  * Root TypoScript template for the site
