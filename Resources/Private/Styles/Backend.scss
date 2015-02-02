@@ -2,8 +2,8 @@
 
 @import 'settings-custom';
 
-// Make FontAwesome variables available here 
-@import 'Font-Awesome/scss/variables';
+// Include our own version of FontAwesome
+@import 'Vendor/font-awesome';
 
 @keyframes shake {
 	0%, 25%, 100% {

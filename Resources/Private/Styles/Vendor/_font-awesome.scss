@@ -1,0 +1,40 @@
+// 
+// Due to different version of FontAwesome included in TYPO3 Neos
+// we need to override the font-family name, so it doesn't conflict 
+// with the one included on Neos backend
+//
+@import 'Font-Awesome/scss/font-awesome';
+
+// Override the default fa-icon() mixin, so we can use our own font-family name
+// source: _mixins.scss
+@mixin fa-icon() {
+	display: inline-block;
+	font: normal normal normal #{$fa-font-size-base}/1 $fa-font-family-name; // shortening font declaration
+	font-size: inherit; // can't have font-size inherit on line above, so need to override
+	text-rendering: auto; // optimizelegibility throws things off #1094
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	transform: translate(0, 0); // ensures no half-pixel rendering in firefox
+}
+
+// Override the default @font-face definition, so we can use our own font-family name
+// source: _path.scss
+@font-face {
+	font-family: $fa-font-family-name;
+	src: url('#{$fa-font-path}/fontawesome-webfont.eot?v=#{$fa-version}');
+	src: url('#{$fa-font-path}/fontawesome-webfont.eot?#iefix&v=#{$fa-version}') format('embedded-opentype'),
+	url('#{$fa-font-path}/fontawesome-webfont.woff2?v=#{$fa-version}') format('woff2'),
+	url('#{$fa-font-path}/fontawesome-webfont.woff?v=#{$fa-version}') format('woff'),
+	url('#{$fa-font-path}/fontawesome-webfont.ttf?v=#{$fa-version}') format('truetype'),
+	url('#{$fa-font-path}/fontawesome-webfont.svg?v=#{$fa-version}#fontawesomeregular') format('svg');
+	//  src: url('#{$fa-font-path}/FontAwesome.otf') format('opentype'); // used when developing fonts
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+// Override the base .fa definition, so we can use our own font-family name
+// source: _core.scss
+.#{$fa-css-prefix} {
+	@include fa-icon();
+}
