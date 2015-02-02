@@ -51,3 +51,18 @@ body.no-main-content > main {
 		}
 	}
 }
+
+.neos {
+	// decrease font size in all lists (e.g. page tree, structure tree)
+	ul, ol, dl {
+		font-size: 0.9rem;
+	}
+	// inspector: decrease spacing between fields
+	#neos-inspector .neos-inspector-form .neos-inspector-field > div {
+		padding-bottom: 8px;
+	}
+	// Increase the default height of 'Structure' panel when it's open
+	#neos-navigate-panel:not(.neos-navigate-panel-context-structure-open) #neos-node-tree {
+		height: 30%;
+	}
+}
