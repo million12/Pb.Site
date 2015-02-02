@@ -1,0 +1,39 @@
+// Notice shown when there's no any content on the main page
+.no-main-content {
+	.empty-content-notice-frontend {
+		$width: 30rem;
+		$height: 5.2rem;
+		position: absolute;
+		margin: auto;
+		padding: 1rem;
+		top: 0; left: 0; bottom: 0; right: 0;
+		width: $width;
+		height: $height;
+		border: 1px dashed #aaa;
+		
+		&:before {
+			@extend .#{$fa-css-prefix};
+			position: absolute;
+			width: $width;
+			bottom: $height;
+			margin: 0 0 1rem -1rem;
+			content: $fa-var-coffee;
+			font-size: 12rem;
+			color: #fff;
+			text-align: center;
+			text-shadow: 0 0 1rem #e8e8e8;
+		}
+		
+		p {
+			margin-bottom: 0;
+		}
+	}
+	
+	// When layout with row/container is active, make that .column position statically,
+	// so the above is positioned correctly. Otherwise the .column has position:relative
+	// and the whole notice is not centered vertically.
+	// Note: this is with the assumption, that the main content is in main.row > .columns container.
+	main.row > .columns {
+		position: static;
+	}
+}

@@ -22,9 +22,10 @@ body.neos-backend {
 	padding-top: 2.2rem;
 }
 
-body > main {
-	> .neos-contentcollection {
-		// Improve a bit UX when there's no content at all yet
+// Improve a bit UX when there's no content at all
+// and add an indication where to click to start.
+body.no-main-content > main {
+	.neos-contentcollection {
 		> .neos.neos-empty-contentcollection-overlay {
 			$height: 41px;
 			height: $height;
@@ -35,14 +36,14 @@ body > main {
 				@extend .#{$fa-css-prefix};
 				@extend .#{$fa-css-prefix}-2x;
 				float: right;
-				padding: 0.5rem 1.2rem;
+				padding: 0.9rem 1rem;
 				content: $fa-var-angle-double-up;
 				color: #666;
 				animation: shake 2.5s infinite;
 				animation-delay: 2s;
 			}
 			&:after {
-				content: 'Click here to start';
+				content: 'Click here to add content';
 				line-height: $height;
 				float: right;
 				color: #666;

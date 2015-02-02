@@ -6,7 +6,9 @@ include: Neos/*
 page = Page {
 	@override.templateMeta      = 'resource://M12.FoundationSite/Private/Templates/Page/Meta.html'
 	@override.templateDefault   = 'resource://M12.FoundationSite/Private/Templates/Page/PageDefault.html'
-#	@override.isDEV = ${Configuration.setting('TYPO3.Flow.core.context') == 'Development'}
+	@override.isRootPage        = ${q(node).property('_identifier') == q(site).property('_identifier')}
+	// Do we have any content on the page?
+	@override.mainNodesCount    = ${q(node).children('main').children().count()}
 	
 	head {
 		metadata = TYPO3.TypoScript:Template {
@@ -28,6 +30,15 @@ page = Page {
 		titleTag.content = ${q(documentNode).parents().get() ? q(node).property('title') + ' - ' + q(site).property('title') : q(site).property('title')}
 	}
 
+	@override.noContentNotice = TYPO3.TypoScript:Template {
+		templatePath = 'resource://M12.FoundationSite/Private/Templates/Page/NoContentNotice.html'
+		node = ${node}
+	}
+
+	bodyTag {
+		attributes.class.noMainContent = ${mainNodesCount ? '' : 'no-main-content'}
+	}
+
 	body {
 		templatePath = ${templateDefault}
 		sectionName = 'body'
@@ -43,6 +54,11 @@ page = Page {
 			// The default content section
 			main = PrimaryContent {
 				nodePath = 'main'
+				// In case there's no any content on the main page, show an appropriate info.
+				// Otherwise empty/blank page looks like something is not right, which is not true.
+				@process.noContentNotice {
+					expression = ${value + (isRootPage && mainNodesCount == 0 ? noContentNotice : null)}
+				}
 			}
 			footer = ContentCollection {
 				nodePath = ${q(site).children('footer').property('_path')}
