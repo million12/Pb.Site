@@ -49,7 +49,7 @@ gulp.task('scripts-hinting', function() {
 });
 
 gulp.task('assets', function() {
-	del(config.clear);
+	del.sync(config.clear, {force:true});
 	
 	return gulp.src(config.source.fonts)
 		.pipe(gulp.dest(config.dest.fonts))
