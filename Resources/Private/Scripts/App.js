@@ -1,16 +1,25 @@
-(function (App) {
+(function () {
 	'use strict';
+
+	/**
+	 * Check if we are in Neos back-end
+	 * @type {boolean}
+	 */
+	var IS_NEOS_BE = false;
 
 	/**
 	 * M12.FoundationSite app
 	 */
-	App = {
+	var App = {
 		/**
 		 * Called on page load, to initialise all necessary components
 		 */
 		init: function() {
 			// init zurb foundation
 			$(document).foundation();
+
+			// prevent some default events when in Neos back-end
+			this.preventDefaultsWhenInNeosBackend();
 		},
 
 		/**
@@ -24,6 +33,21 @@
 					localStorage.setItem('contextStructureMode', false);
 				}
 			}
+		},
+
+		/**
+		 * Prevent some default events when in Neos back-end
+		 */
+		preventDefaultsWhenInNeosBackend: function() {
+			if (false === IS_NEOS_BE) {
+				return;
+			}
+			
+			// By default, after click on LABEL, focus is moved to related INPUT field.
+			// Prevent that default action while in edit mode (@see TS-113)
+			$('label').children('.neos-inline-editable').click(function(e) {
+				e.preventDefault();
+			});
 		}
 	};
 	
@@ -38,6 +62,9 @@
 	 * Document ready: initialise all necessary components
 	 */
 	$(document).ready(function () {
+		// detect if we are in Neos back-end
+		IS_NEOS_BE = typeof T3 !== 'undefined' || typeof Typo3Neos !== 'undefined';
+		
 		App.initNeosLocalStorage();
 		App.init();
 	});

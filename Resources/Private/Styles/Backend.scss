@@ -57,6 +57,12 @@ body.no-main-content > main {
 	ul, ol, dl {
 		font-size: 0.9rem;
 	}
+
+	// Restore Neos colors after they were overridden by Foundation
+	label {
+		color: inherit;
+	}
+
 	// inspector: decrease spacing between fields
 	#neos-inspector .neos-inspector-form .neos-inspector-field > div {
 		padding-bottom: 8px;
