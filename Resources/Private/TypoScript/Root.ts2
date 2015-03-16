@@ -1,14 +1,23 @@
-include: Neos/*
-
 /**
  * Root TypoScript template for the site
  */
 page = Page {
 	@override.templateMeta      = 'resource://M12.FoundationSite/Private/Templates/Page/Meta.html'
-	@override.templateDefault   = 'resource://M12.FoundationSite/Private/Templates/Page/PageDefault.html'
+	@override.templateDefault   = 'resource://M12.FoundationSite/Private/Templates/Page/Page.html'
 	@override.isRootPage        = ${q(node).property('_identifier') == q(site).property('_identifier')}
+
+	// Page type (the part after :), all lowercase
+	@override.pageType          = ${String.toLowerCase(String.substr(q(node).property('_nodeType.name'), 1+String.lastIndexOf(q(node).property('_nodeType.name'), ':')))}
+	@override.pageLayout        = ${q(node).property('layout') != null && q(node).property('layout') != '' ? q(node).property('layout') : q(node).parents('[subpageLayout]').first().property('subpageLayout')}
+	
 	// Do we have any content on the page?
 	@override.mainNodesCount    = ${q(node).children('main').children().count()}
+	
+	// Prepare no content notice
+	@override.noContentNotice = TYPO3.TypoScript:Template {
+		templatePath = 'resource://M12.FoundationSite/Private/Templates/Page/NoContentNotice.html'
+		node = ${node}
+	}
 	
 	head {
 		metadata = TYPO3.TypoScript:Template {
@@ -29,12 +38,7 @@ page = Page {
 		
 		titleTag.content = ${q(documentNode).parents().get() ? q(node).property('title') + ' - ' + q(site).property('title') : q(site).property('title')}
 	}
-
-	@override.noContentNotice = TYPO3.TypoScript:Template {
-		templatePath = 'resource://M12.FoundationSite/Private/Templates/Page/NoContentNotice.html'
-		node = ${node}
-	}
-
+	
 	bodyTag {
 		attributes.class.noMainContent = ${mainNodesCount ? '' : 'no-main-content'}
 	}
@@ -42,11 +46,13 @@ page = Page {
 	body {
 		templatePath = ${templateDefault}
 		sectionName = 'body'
+		pageType = ${pageType}
+		pageLayout = ${pageLayout}
 		
-		parts {
-			menu = Menu
-			breadcrumb = Breadcrumb
-		}
+#		parts {
+#			menu = Menu
+#			breadcrumb = Breadcrumb
+#		}
 		content {
 			top = ContentCollection {
 				nodePath = ${q(site).children('top').property('_path')}
@@ -72,9 +78,5 @@ page = Page {
 	}
 }
 
-container < page {
-	@override.templateDefault   = 'resource://M12.FoundationSite/Private/Templates/Page/PageContainer.html'
-}
-container-top-footer < container {
-	@override.templateDefault   = 'resource://M12.FoundationSite/Private/Templates/Page/PageContainerTopFooter.html'
-}
+container < page
+no-container < page

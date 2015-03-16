@@ -1,26 +1,64 @@
+# Note: we re-define Page, PageSimple from the scratch instead of amending
+# and inheriting after TYPO3.Neos.NodeTypes:Page. This is mainly because
+# there's already 'main' child node defined there and all others which we
+# would add would be always added *after* the main. This is bit confusing
+# in Structure Tree, where you first see 'main', then 'top', then 'footer'.
 'TYPO3.Neos.NodeTypes:Page':
+  abstract: TRUE
+
+'M12.FoundationSite:AbstractPage':
+  abstract: TRUE
+  superTypes: ['TYPO3.Neos:Document']
+  ui:
+    label: 'Page'
+    icon: 'icon-file'
+    position: 100
+    inspector:
+      groups:
+        document:
+          label: 'Title'
+        layout:
+          label: 'Layout'
+          position: 150
   properties:
     layout:
+      type: string
       ui:
-        inspector:
+        label: 'Layout for this page'
+        reloadIfChanged: TRUE
+        inspector: &pagePropertyLayoutInspector
           group: layout
+          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
           editorOptions:
+            placeholder: 'Inherit from parent'
             values:
               '':
                 label: ''
               'container':
                 label: 'Page in a container'
-              'container-top-footer':
-                label: 'Page in a container + top + footer'
+              'no-container':
+                label: 'Page full width'
     subpageLayout:
+      type: string
       ui:
-        inspector:
-          group: layout
-          editorOptions:
-            values:
-              '':
-                label: ''
-              'container':
-                label: 'Page in container'
-              'container-top-footer':
-                label: 'Page in container + top + footer'
+        label: 'Layout for subpages of this page'
+        inspector: *pagePropertyLayoutInspector
+
+'M12.FoundationSite:Page':
+  superTypes: ['M12.FoundationSite:AbstractPage']
+  childNodes:
+    'top':
+      type: 'TYPO3.Neos:ContentCollection'
+    'main':
+      type: 'TYPO3.Neos:ContentCollection'
+    'footer':
+      type: 'TYPO3.Neos:ContentCollection'
+
+'M12.FoundationSite:PageSimple':
+  superTypes: ['M12.FoundationSite:AbstractPage']
+  childNodes:
+    'main':
+      type: 'TYPO3.Neos:ContentCollection'
+  ui:
+    label: 'Simple Page'
+    icon: 'icon-file-alt'

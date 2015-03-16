@@ -1,37 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
- <site name="Home Page" state="1" siteResourcesPackageKey="M12.FoundationSite" siteNodeName="neos-typostrap-site">
+ <site name="Foundation Site" state="1" siteResourcesPackageKey="M12.FoundationSite" siteNodeName="foundation-site">
   <nodes formatVersion="2.0">
-   <node nodeName="neos-typostrap-site">
-    <variant sortingIndex="100" workspace="live" nodeType="TYPO3.Neos.NodeTypes:Page" version="1" removed="" hidden="" hiddenInIndex="">
-     <dimensions>
-     </dimensions>
+   <node nodeName="foundation-site">
+    <variant sortingIndex="100" workspace="live" nodeType="M12.FoundationSite:Page" version="1" removed="" hidden="" hiddenInIndex="">
+     <dimensions/>
      <accessRoles __type="array"/>
      <properties>
       <title __type="string">Home Page</title>
       <uriPathSegment __type="string">index</uriPathSegment>
+      <layout __type="string">container</layout>
+      <subpageLayout __type="string">container</subpageLayout>
      </properties>
     </variant>
-    <node nodeName="footer">
-     <variant sortingIndex="300" workspace="live" nodeType="TYPO3.Neos:ContentCollection" version="1" removed="" hidden="" hiddenInIndex="">
-      <dimensions>
-      </dimensions>
+    <node nodeName="top">
+     <variant sortingIndex="100" workspace="live" nodeType="TYPO3.Neos:ContentCollection" version="1" removed="" hidden="" hiddenInIndex="">
+      <dimensions/>
       <accessRoles __type="array"/>
       <properties/>
      </variant>
     </node>
     <node nodeName="main">
      <variant sortingIndex="200" workspace="live" nodeType="TYPO3.Neos:ContentCollection" version="1" removed="" hidden="" hiddenInIndex="">
-      <dimensions>
-      </dimensions>
+      <dimensions/>
       <accessRoles __type="array"/>
       <properties/>
      </variant>
     </node>
-    <node nodeName="top">
-     <variant sortingIndex="100" workspace="live" nodeType="TYPO3.Neos:ContentCollection" version="1" removed="" hidden="" hiddenInIndex="">
-      <dimensions>
-      </dimensions>
+    <node nodeName="footer">
+     <variant sortingIndex="300" workspace="live" nodeType="TYPO3.Neos:ContentCollection" version="1" removed="" hidden="" hiddenInIndex="">
+      <dimensions/>
       <accessRoles __type="array"/>
       <properties/>
      </variant>

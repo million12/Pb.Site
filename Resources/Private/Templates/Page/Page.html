@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{namespace neos=TYPO3\Neos\ViewHelpers}
+{namespace ts=TYPO3\TypoScript\ViewHelpers}
+<html>
+<head></head>
+<body>
+<f:section name="body">
+	<f:if condition="{pageType} == 'page'">
+		{content.top -> f:format.raw()}
+	</f:if>
+
+	<f:if condition="{pageLayout} == 'container'">
+		<f:then>
+			<main class="row">
+				<div class="small-12 columns">
+					{content.main -> f:format.raw()}
+				</div>
+			</main>
+		</f:then>
+		<f:else>
+			<main>
+				{content.main -> f:format.raw()}
+			</main>
+		</f:else>
+	</f:if>
+
+	<f:if condition="{pageType} == 'page'">
+		<footer>
+			{content.footer -> f:format.raw()}
+		</footer>
+	</f:if>
+</f:section>
+</body>
+</html>
