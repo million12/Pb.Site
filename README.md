@@ -1,4 +1,5 @@
 # M12.FoundationSite - site package for TYPO3 Neos
+[![Circle CI](https://circleci.com/gh/million12/M12.FoundationSite.svg?style=svg)](https://circleci.com/gh/million12/M12.FoundationSite)
 
 Site package which works together with [M12.Foundation](https://github.com/million12/M12.Foundation) plugin implementing [Zurb Foundation](http://foundation.zurb.com/) components.
 
