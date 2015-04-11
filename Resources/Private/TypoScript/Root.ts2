@@ -35,6 +35,14 @@ page = Page {
 			templatePath = ${templateMeta}
 			sectionName = 'headScripts'
 		}
+
+		# Append custom HEAD section
+		# Note: it's rendered in reversed order... so 1st global site code, then local from this page.
+		customHeadSection = TYPO3.TypoScript:Array {
+			1 = ${q(site).property('customHeadCode')}
+			2 = ${q(site).property('_nodeData.path')!=q(node).property('_nodeData.path') ? q(node).property('customHeadCode') : null}
+			@position = 'end'
+		}
 		
 		titleTag.content = ${q(documentNode).parents().get() ? q(node).property('title') + ' - ' + q(site).property('title') : q(site).property('title')}
 	}

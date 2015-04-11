@@ -26,6 +26,17 @@
     subpageLayout:
       ui:
         inspector: *pagePropertyLayoutInspector
+    # Custom content in the HEAD section
+    customHeadCode:
+      type: string
+      ui:
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'devCode'
+          position: 29 # before 'customCssCode'
+          editor: 'TYPO3.Neos/Inspector/Editors/CodeEditor'
+          editorOptions:
+            label: 'Custom page HEAD code'
 
 
 'M12.FoundationSite:Page':
