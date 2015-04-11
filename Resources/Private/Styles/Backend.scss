@@ -73,6 +73,12 @@ body.no-main-content > main {
 	}
 }
 
+// Hide empty CC overlay, if parent has .neos-hide-empty-contentcollection-overlay class
+// We use it e.g. in Tabs to hide CC overlay for M12.Foundation:TabNavItem
+// See https://github.com/million12/M12.Foundation/commit/675ecb95d971c9888b84b9b0119682460dc12c9d
+.neos-hide-empty-contentcollection-overlay .neos-empty-contentcollection-overlay {
+	display: none;
+}
 
 //
 // Intercom.io styling (back-end only)
