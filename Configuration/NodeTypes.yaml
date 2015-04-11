@@ -1,36 +1,21 @@
-# Note: we re-define Page, PageSimple from the scratch instead of amending
-# and inheriting after TYPO3.Neos.NodeTypes:Page. This is mainly because
-# there's already 'main' child node defined there and all others which we
-# would add would be always added *after* the main. This is bit confusing
-# in Structure Tree, where you first see 'main', then 'top', then 'footer'.
 'TYPO3.Neos.NodeTypes:Page':
+  # Make it abstract, M12.FoundationSite defines its own Page based on that one.
   abstract: TRUE
-
-'M12.FoundationSite:AbstractPage':
-  abstract: TRUE
-  superTypes: ['TYPO3.Neos:Document']
-  ui:
-    label: 'Page'
-    icon: 'icon-file'
-    position: 100
-    inspector:
-      groups:
-        document:
-          label: 'Title'
-        layout:
-          label: 'Layout'
-          position: 150
+  # Unset all child nodes, as we need to re-define them in M12.Foundation:Page
+  # in the right order, i.e. [top, main, footer]. Without that we would have
+  # order [main, top, footer], because 'main' has been already defined
+  # in the TYPO3.Neos.NodeTypes:Page and the order cannot be changed (as for now).
+  childNodes: ~
   properties:
+    # Layout property is already defined in TYPO3.Neos.NodeTypes:Page,
+    # but it's not displayed by default because it doesn't belong to any inpsector group.
+    # Make it visible here and define available layouts.
     layout:
-      type: string
       ui:
-        label: 'Layout for this page'
-        reloadIfChanged: TRUE
         inspector: &pagePropertyLayoutInspector
           group: layout
-          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          position: 10
           editorOptions:
-            placeholder: 'Inherit from parent'
             values:
               '':
                 label: ''
@@ -39,25 +24,24 @@
               'no-container':
                 label: 'Page full width'
     subpageLayout:
-      type: string
       ui:
-        label: 'Layout for subpages of this page'
         inspector: *pagePropertyLayoutInspector
 
+
 'M12.FoundationSite:Page':
-  superTypes: ['M12.FoundationSite:AbstractPage']
+  superTypes: ['TYPO3.Neos.NodeTypes:Page']
   childNodes:
-    'top':
+    top:
       type: 'TYPO3.Neos:ContentCollection'
-    'main':
+    main:
       type: 'TYPO3.Neos:ContentCollection'
-    'footer':
+    footer:
       type: 'TYPO3.Neos:ContentCollection'
 
 'M12.FoundationSite:PageSimple':
-  superTypes: ['M12.FoundationSite:AbstractPage']
+  superTypes: ['TYPO3.Neos.NodeTypes:Page']
   childNodes:
-    'main':
+    main:
       type: 'TYPO3.Neos:ContentCollection'
   ui:
     label: 'Simple Page'
