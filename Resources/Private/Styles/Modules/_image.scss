@@ -1,0 +1,15 @@
+// By default FIGURE has pretty large margin on left/right side
+// Let's get rid of it for now. In plenty of cases there are
+// some wrapping elements like grid, block grid, sliders
+// which have their own spacing etc, therefore this one is not necessary.
+figure {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+// Paragraph inside FIGCAPTION: reset margin
+figcaption {
+	p { // don't use '> p' here! In Neos BE we have extra DIV around it, as it's editable
+		margin: 0;
+	}
+}

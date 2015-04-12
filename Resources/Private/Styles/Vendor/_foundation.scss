@@ -1,0 +1,10 @@
+//
+// Overrides/add-ons for Zurb Foundation
+//
+
+.orbit-slides-container {
+	// Neos wraps IMG in FIGURE tag. Reset margin for it...
+	figure {
+		margin: 0;
+	}
+}
