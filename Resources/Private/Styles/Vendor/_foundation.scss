@@ -8,3 +8,9 @@
 		margin: 0;
 	}
 }
+
+// Somehow IFRAME borders are not styled in Zurb Foundation and they give
+// examples with using 'frameborder="0"' attribute.
+iframe {
+	border: 0 none;
+}
