@@ -5,7 +5,7 @@
   # in the right order, i.e. [top, main, footer]. Without that we would have
   # order [main, top, footer], because 'main' has been already defined
   # in the TYPO3.Neos.NodeTypes:Page and the order cannot be changed (as for now).
-  childNodes: ~
+  childNodes: []
   properties:
     # Layout property is already defined in TYPO3.Neos.NodeTypes:Page,
     # but it's not displayed by default because it doesn't belong to any inpsector group.
@@ -40,7 +40,8 @@
 
 
 'M12.FoundationSite:Page':
-  superTypes: ['TYPO3.Neos.NodeTypes:Page']
+  superTypes:
+    'TYPO3.Neos.NodeTypes:Page': TRUE
   childNodes:
     top:
       type: 'TYPO3.Neos:ContentCollection'
@@ -50,7 +51,8 @@
       type: 'TYPO3.Neos:ContentCollection'
 
 'M12.FoundationSite:PageSimple':
-  superTypes: ['TYPO3.Neos.NodeTypes:Page']
+  superTypes:
+    'TYPO3.Neos.NodeTypes:Page': TRUE
   childNodes:
     main:
       type: 'TYPO3.Neos:ContentCollection'
