@@ -5,18 +5,6 @@
 //
 @import 'Font-Awesome/scss/font-awesome';
 
-// Override the default fa-icon() mixin, so we can use our own font-family name
-// source: _mixins.scss
-@mixin fa-icon() {
-	display: inline-block;
-	font: normal normal normal #{$fa-font-size-base}/1 $fa-font-family-name; // shortening font declaration
-	font-size: inherit; // can't have font-size inherit on line above, so need to override
-	text-rendering: auto; // optimizelegibility throws things off #1094
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	transform: translate(0, 0); // ensures no half-pixel rendering in firefox
-}
-
 // Override the default @font-face definition, so we can use our own font-family name
 // source: _path.scss
 @font-face {
@@ -32,9 +20,11 @@
 	font-style: normal;
 }
 
-
 // Override the base .fa definition, so we can use our own font-family name
 // source: _core.scss
 .#{$fa-css-prefix} {
-	@include fa-icon();
+	// Just override font-family. We cannot override whole definition,
+	// as it also contains font-size and others, which are overridden
+	// in .fa-2x, .fa-3x and others.
+	font-family: $fa-font-family-name;
 }
