@@ -81,6 +81,11 @@ body.no-main-content > main {
 	display: none;
 }
 
+// Inline editable fix for SubNav items
+a > .neos-inline-editable {
+	display: inline;
+}
+
 //
 // Intercom.io styling (back-end only)
 //
