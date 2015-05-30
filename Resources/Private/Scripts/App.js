@@ -32,6 +32,10 @@
 				if (null === localStorage.getItem('contextStructureMode')) {
 					localStorage.setItem('contextStructureMode', false);
 				}
+				// Set the left menu to be shown in sticky mode
+				if (null === localStorage.getItem('menuConfiguration')) {
+					localStorage.setItem('menuConfiguration', '{"content":false,"menuPanelStickyMode":true,"isMenuPanelStickyModeShown":true}');
+				}
 			}
 		},
 
