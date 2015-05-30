@@ -71,6 +71,9 @@ body.no-main-content > main {
 	#neos-navigate-panel:not(.neos-navigate-panel-context-structure-open) #neos-node-tree {
 		height: 30%;
 	}
+	#neos-navigate-panel:not(.neos-navigate-panel-context-structure-open) #neos-context-structure {
+		height: 70%;
+	}
 }
 
 // Hide empty CC overlay, if parent has .neos-hide-empty-contentcollection-overlay class
