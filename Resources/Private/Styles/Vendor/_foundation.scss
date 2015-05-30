@@ -14,3 +14,11 @@
 iframe {
 	border: 0 none;
 }
+
+//
+// Alert: last paragraph should have margin 0.
+// Weird, Foundation has it for Panel, but not for alert...
+//
+.alert-box > :last-child {
+	margin-bottom: 0;
+}
