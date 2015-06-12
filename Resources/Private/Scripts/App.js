@@ -60,7 +60,35 @@
 	 */
 	document.addEventListener('Neos.PageLoaded', function () {
 		App.init();
-	}, false);
+	});
+	/**
+	 * Invoked when new content element has been added and rendered on page
+	 * (but w/o full page reload).
+	 */
+	document.addEventListener('Neos.NodeCreated', function(e) {
+		var createdNodeType = $(e.detail.element).data('node-_nodeType');
+		console.log('Neos.NodeCreated:', createdNodeType);
+		
+		switch (createdNodeType) {
+			// Some JavaScript components need to be fully re-initialised after inserting 
+			case 'M12.Foundation:Accordion':
+			case 'M12.Foundation:Orbit':
+			case 'M12.Foundation:Tabs':
+				App.init();
+				break;
+			
+			// Some components are altered with extra nodes being created before/after the inserted node.
+			// E.g. when inserting RevealModal, extra button (to trigger that modal) is created before.
+			// To support such a case, we need fully reload the page, otherwise the extra node
+			// is not rendered (because Neos doesn't know about it).
+			// @see M12.Foundation.assistanceChildNodes in Settings.yaml
+			case 'M12.Foundation:Dropdown':
+			case 'M12.Foundation:DropdownContent':
+			case 'M12.Foundation:RevealModal':
+				Typo3Neos.Content.reloadPage();
+				break;
+		}
+	});
 
 	/**
 	 * Document ready: initialise all necessary components

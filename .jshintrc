@@ -24,6 +24,7 @@
   "phantom": true,
   
   "predef": [
+    "Typo3Neos",
     "Modernizr"
   ]
 }
