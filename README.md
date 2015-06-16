@@ -1,4 +1,4 @@
-# M12.FoundationSite - site package for TYPO3 Neos
+# M12.FoundationSite - Neos CMS site package
 [![Circle CI](https://circleci.com/gh/million12/M12.FoundationSite.svg?style=svg)](https://circleci.com/gh/million12/M12.FoundationSite)
 
 Site package which works together with [M12.Foundation](https://github.com/million12/M12.Foundation) plugin implementing [Zurb Foundation](http://foundation.zurb.com/) components.
@@ -38,4 +38,7 @@ gulp watch
 ## Author(s)
 
 * Marcin Ryzycki marcin@m12.io  
-* Samuel Ryzycki samuel@m12.io
+
+Licensed under: The MIT License (MIT)
+
+**Sponsored by** [Typostrap.io - the new prototyping tool](http://typostrap.io/) for building highly-interactive prototypes of your website or web app. Built on top of Neos CMS and Zurb Foundation framework.
