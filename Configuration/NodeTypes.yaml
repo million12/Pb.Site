@@ -30,6 +30,19 @@
     customHeadCode:
       type: string
       ui:
+        label: 'Custom page HEAD code'
+        help:
+          message: |
+            Ideal place if you want to add any external JS and/or CSS libraries or just any custom HTML code to the page. The code here will be added to the end of the `<head>` section.
+            
+            **Hint:** to have the code **added to all your pages** across the site, include it on the root page (the 1st one in the page tree). The code added to a sub-page will be available only on that particular page.
+            
+            ### Example
+            ```
+            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:title" content="Small Island Developing States Photo Submission" />
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+            ```
         reloadIfChanged: TRUE
         inspector:
           group: 'devCode'
