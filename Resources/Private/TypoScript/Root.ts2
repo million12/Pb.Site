@@ -64,6 +64,7 @@ page = Page {
 		content {
 			top = ContentCollection {
 				nodePath = ${q(site).children('top').property('_path')}
+				@cache.entryIdentifier.documentNode = ${documentNode}
 			}
 			// The default content section
 			main = PrimaryContent {
@@ -76,6 +77,7 @@ page = Page {
 			}
 			footer = ContentCollection {
 				nodePath = ${q(site).children('footer').property('_path')}
+				@cache.entryIdentifier.documentNode = ${documentNode}
 			}
 		}
 
