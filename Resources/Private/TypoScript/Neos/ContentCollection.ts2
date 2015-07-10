@@ -1,0 +1,5 @@
+# Add extra condition and only add ` ` (extra space) if there's something in the collection class
+# @TODO: can be removed once that check is in Neos core 
+prototype(TYPO3.Neos:ContentCollection) < prototype(TYPO3.TypoScript:Tag) {
+	attributes.class.@process.collectionClass.classIsString.renderer = ${String.trim(value) ? String.trim(value) + ' ' + collectionClass : collectionClass}
+}
