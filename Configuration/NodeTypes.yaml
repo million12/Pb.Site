@@ -12,10 +12,10 @@
     # Make it visible here and define available layouts.
     layout:
       ui:
-        inspector: &pagePropertyLayoutInspector
+        inspector:
           group: layout
           position: 10
-          editorOptions:
+          editorOptions: &pagePropertyLayoutEditorOptions
             values:
               '':
                 label: ''
@@ -25,7 +25,11 @@
                 label: 'Page full width'
     subpageLayout:
       ui:
-        inspector: *pagePropertyLayoutInspector
+        inspector:
+          group: layout
+          position: 11
+          editorOptions: *pagePropertyLayoutEditorOptions
+    
     # Custom content in the HEAD section
     customHeadCode:
       type: string
