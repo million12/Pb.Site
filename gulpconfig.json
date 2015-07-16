@@ -28,7 +28,14 @@
     },
     "watch": {
         "styles": "Resources/Private/Styles/**/*",
-        "scripts": "Resources/Private/Scripts/**/*"
+        "scripts": "Resources/Private/Scripts/**/*",
+        "php": [
+            "Packages/Sites/M12.FoundationSite/Classes/**/*", "Packages/Sites/M12.FoundationSite/Configuration/**/*", "Packages/Sites/M12.FoundationSite/Resources/Private/**/*",
+            "Packages/Plugins/M12.Foundation/**/*",
+            "Packages/Plugins/M12.SlickCarousel/**/*",
+            "Packages/Plugins/M12.Plugin.Blog/**/*",
+            "Packages/Plugins/M12.Utils/**/*"
+        ]
     },
     "clear": [
         "Resources/Public/Styles/*",
