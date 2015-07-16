@@ -13,3 +13,9 @@ figcaption {
 		margin: 0;
 	}
 }
+
+// Used for thumbnail images. Foundation comes with a.th class, but we also
+// add this class if there's no href attribute for <a> element.
+.th--no-href {
+	&:hover { cursor: default; }
+}

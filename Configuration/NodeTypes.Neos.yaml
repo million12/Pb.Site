@@ -1,9 +1,0 @@
-# Image mixin
-'TYPO3.Neos.NodeTypes:ImageMixin':
-  properties:
-    image:
-      ui:
-        inspector:
-          editorOptions:
-            features:
-              resize: TRUE
