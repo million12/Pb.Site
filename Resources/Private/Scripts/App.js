@@ -82,11 +82,24 @@
 			// To support such a case, we need fully reload the page, otherwise the extra node
 			// is not rendered (because Neos doesn't know about it).
 			// @see M12.Foundation.assistanceChildNodes in Settings.yaml
-			case 'M12.Foundation:Dropdown':
-			case 'M12.Foundation:DropdownContent':
-			case 'M12.Foundation:RevealModal':
-				Typo3Neos.Content.reloadPage();
-				break;
+			//
+			// Update for Neos 2.0-RC1 (2015/08/03):
+			// After inserting node types listed below (and couple of others 
+			// - seems like all of them where we add some extra child nodes
+			// which are not defined in NodeTypes) the page is reloaded anyway
+			// due to early exit and warning `Node could not be found in rendered collection.`
+			// generated from NodeActions.js in _insertNode() function.
+			// Commenting out for now as it works perfectly fine (for now).
+			// The only remaining issue is that the structure tree is not reloaded
+			// so the newly inserted nodes are not visible there. Hopefully it's sth
+			// which will be fixed in Neos soon.
+			//
+			//case 'M12.Foundation:Dropdown':
+			//case 'M12.Foundation:DropdownContent':
+			//case 'M12.Foundation:RevealModal':
+			//	console.log('doing full page reload');
+			//	Typo3Neos.Content.reloadPage();
+			//	break;
 		}
 	});
 
