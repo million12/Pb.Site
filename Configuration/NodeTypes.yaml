@@ -1,6 +1,12 @@
 'TYPO3.Neos.NodeTypes:Page':
   # Make it abstract, M12.FoundationSite defines its own Page based on that one.
-  abstract: TRUE
+  # Note: for now we hide it by assigning to not/available UI group.
+  # This is due to JS error from ContextStructureTree caused by line
+  # documentNodeType = (page ? page.get('typo3:_nodeType'): 'TYPO3.Neos.NodeTypes:Page'), // TODO: This fallback to TYPO3.Neos.NodeTypes:Page should go away, but currently in some rare cases "page" is not yet initialized. In order to fix this loading order issue, we need to re-structure the tree, though.
+  # TODO: remove when https://jira.neos.io/browse/NEOS-1478 is fixed.
+#  abstract: TRUE
+  ui:
+    group: 'na'
   # Unset all child nodes, as we need to re-define them in M12.Foundation:Page
   # in the right order, i.e. [top, main, footer]. Without that we would have
   # order [main, top, footer], because 'main' has been already defined
@@ -59,6 +65,8 @@
 'M12.FoundationSite:Page':
   superTypes:
     'TYPO3.Neos.NodeTypes:Page': TRUE
+  ui:
+    group: general
   childNodes:
     top:
       type: 'TYPO3.Neos:ContentCollection'
@@ -76,3 +84,4 @@
   ui:
     label: 'Simple Page'
     icon: 'icon-file-alt'
+    group: general
