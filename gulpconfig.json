@@ -3,7 +3,7 @@
     "source": {
         "styles": "Resources/Private/Styles/**/",
         "vendorScripts": [
-            "BowerComponents/modernizr/modernizr.js",
+            "BowerComponents/foundation/js/vendor/modernizr.js",
             "BowerComponents/jquery/dist/jquery.js",
             "BowerComponents/foundation/js/foundation.js",
             "BowerComponents/slick.js/slick/slick.js"
