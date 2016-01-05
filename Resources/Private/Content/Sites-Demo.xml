@@ -310,7 +310,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
        <lastModificationDateTime __type="object" __classname="DateTime">2015-12-20T14:43:42+00:00</lastModificationDateTime>
        <lastPublicationDateTime __type="object" __classname="DateTime">2015-12-20T14:43:42+00:00</lastPublicationDateTime>
        <properties>
-        <text __type="string">&lt;p&gt;Let's start with creating a few components from the &quot;General&quot; section in the &quot;Create element&quot; popup that shows up after a click on the plus icon button (you can find it on the left hand side just above the &quot;elements tree&quot; when having one of its elements selected, you can also find it when clicking on a &quot;Headline&quot; or &quot;Text&quot; or any other &quot;component&quot; added here in the &quot;editor&quot; area). If you're still uncertain what we are talking about or you haven't seen our Quickstart screencast video, &lt;a href=&quot;http://typostrap.io/docs&quot;&gt;you can watch it here&lt;/a&gt;.&lt;/p&gt;</text>
+        <text __type="string">&lt;p&gt;Let's start with creating a few components from the &quot;General&quot; section in the &quot;Create element&quot; popup that shows up after a click on the plus icon button (you can find it on the left hand side just above the &quot;elements tree&quot; when having one of its elements selected, you can also find it when clicking on a &quot;Headline&quot; or &quot;Text&quot; or any other &quot;component&quot; added here in the &quot;editor&quot; area). If you're still uncertain what we are talking about or you haven't seen our Quickstart screencast video, &lt;a href=&quot;https://prototypebrewery.io/docs&quot;&gt;you can watch it here&lt;/a&gt;.&lt;/p&gt;</text>
         <classHide __type="boolean"></classHide>
         <classFloat __type="string"></classFloat>
         <classClearfix __type="boolean"></classClearfix>
@@ -373,7 +373,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
        <lastModificationDateTime __type="object" __classname="DateTime">2015-12-20T14:32:28+00:00</lastModificationDateTime>
        <lastPublicationDateTime __type="object" __classname="DateTime">2015-12-20T14:32:28+00:00</lastPublicationDateTime>
        <properties>
-        <text __type="string">&lt;p&gt;So here we go.&lt;/p&gt;&lt;p&gt;We have put together this demo prototype to make your first days with Typostrap more productive. We aim to get this demo to cover every single available component eventually. Today, we'd like to show you a few &quot;components&quot; to start with to give you an idea what can be done here. As a new user who hasn't gone through Typostrap Docs page you might not know that, for example, you can create a link that will trigger a popup when clicked on. Things like that.&lt;/p&gt;&lt;p&gt;We hope you'll find it useful. If you don't... give us a shout via our &lt;a href=&quot;https://typostrap.io/contact&quot;&gt;website&lt;/a&gt; and let us know what we can improve on!&lt;/p&gt;</text>
+        <text __type="string">&lt;p&gt;So here we go.&lt;/p&gt;&lt;p&gt;We have put together this demo prototype to make your first days with PrototypeBrewery more productive. We aim to get this demo to cover every single available component eventually. Today, we'd like to show you a few &quot;components&quot; to start with to give you an idea what can be done here. As a new user who hasn't gone through PrototypeBrewery Docs page you might not know that, for example, you can create a link that will trigger a popup when clicked on. Things like that.&lt;/p&gt;&lt;p&gt;We hope you'll find it useful. If you don't... give us a shout via our &lt;a href=&quot;https://prototypebrewery.io/contact&quot;&gt;website&lt;/a&gt; and let us know what we can improve on!&lt;/p&gt;</text>
         <classHide __type="boolean"></classHide>
         <classFloat __type="string"></classFloat>
         <classClearfix __type="boolean"></classClearfix>
@@ -1031,7 +1031,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         <source __type="string">&lt;div class=&quot;row collapse&quot; id=&quot;html-component-example-sticky&quot;&gt;
   &lt;div class=&quot;column small-12&quot;&gt;
 	Here we pasted in some HTML code from Foundation to layout out this full width grid column.
-	I know, boring... We also pasted in Waypoints plugin in the page source code (&lt;a href=&quot;http://typostrap.io/docs/custom-js&quot;&gt;read the docs&lt;/a&gt; on how to pull it off) and added a bit of JS and CSS code in the &lt;script&gt;&lt;/script&gt; and &lt;style&gt;&lt;/style&gt; tags and we have added a piece of functionality that Typostrap might have or might have not at all. Doesn't matter does it?
+	I know, boring... We also pasted in Waypoints plugin in the page source code (&lt;a href=&quot;https://prototypebrewery.io/docs/&quot;&gt;read the docs&lt;/a&gt; on how to pull it off) and added a bit of JS and CSS code in the &lt;script&gt;&lt;/script&gt; and &lt;style&gt;&lt;/style&gt; tags and we have added a piece of functionality that PrototypeBrewery might have or might have not at all. Doesn't matter does it?
   &lt;/div&gt;
 &lt;/div&gt;
 
@@ -4562,7 +4562,7 @@ var sticky = new Waypoint.Sticky({
        <properties>
         <startLevel __type="string">1</startLevel>
         <maximumLevels __type="string">3</maximumLevels>
-        <topBarTitle __type="string">TYPOSTRAP Demo</topBarTitle>
+        <topBarTitle __type="string">PrototypeBrewery Demo</topBarTitle>
         <classSectionAlign __type="string">right</classSectionAlign>
         <topBarGridContained __type="boolean">1</topBarGridContained>
         <classHide __type="boolean"></classHide>
