@@ -23,18 +23,19 @@ gulp.task('browser-sync', function() {
 
 gulp.task('styles', function() {
 	gulp.src(config.source.styles)
-		.pipe($.plumber())
+		.pipe($.if(!isProduction,
+			$.sourcemaps.init()
+		))
 		.pipe($.sass({
 			includePaths: config.source.includePaths,
 			imagePath: config.dest.images,
-			sourceComments: 'map',
-			sourceMap: isProduction === false,
 			errLogToConsole: true
 		}))
 		.pipe($.autoprefixer('last 3 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
 		.pipe($.if(isProduction,
-			$.csso() // only minify/compress on Production
+			$.csso()
 		))
+		.pipe($.if(!isProduction, $.sourcemaps.write()))
 		.pipe(gulp.dest(config.dest.styles))
 		.pipe($.size({ showFiles:true }))
 		.pipe($.size({ gzip:true }))
@@ -44,9 +45,7 @@ gulp.task('styles', function() {
 gulp.task('scripts', function() {
 	var scripts = config.source.vendorScripts.concat(config.source.scripts);
 	return gulp.src(scripts)
-		.pipe($.if(isProduction,
-			$.uglify({ mangle: false }) // only minify/uglify on Production
-		))
+		.pipe($.if(isProduction, $.uglify({ mangle: false })))
 		.pipe($.concat('App.js'))
 		.pipe(gulp.dest(config.dest.scripts))
 		.pipe($.size({ showFiles:true }))
@@ -61,11 +60,11 @@ gulp.task('scripts-hinting', function() {
 });
 
 gulp.task('assets', function() {
-	del.sync(config.clear, {force:true});
-	
-	return gulp.src(config.source.fonts)
-		.pipe(gulp.dest(config.dest.fonts))
-	;
+	del(config.clear, {force:true})
+		.then(() => {
+			gulp.src(config.source.fonts)
+				.pipe(gulp.dest(config.dest.fonts));
+	})
 });
 
 gulp.task('build', [
