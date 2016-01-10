@@ -41,4 +41,6 @@ gulp watch
 
 Licensed under: The MIT License (MIT)
 
-**Sponsored by** [Typostrap.io - the new prototyping tool](http://typostrap.io/) for building highly-interactive prototypes of your website or web app. Built on top of Neos CMS and Zurb Foundation framework.
+**Sponsored by** [PrototypeBrewery.io - the new prototyping tool](http://prototypebrewery.io/) 
+for building fully interactive prototypes of your website or web app. Built on top of 
+Neos CMS and Zurb Foundation framework.

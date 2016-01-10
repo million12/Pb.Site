@@ -11,8 +11,8 @@ dependencies:
 
   override:
     - docker pull million12/mariadb
-    - docker pull million12/behat-selenium
-    - docker pull million12/neos-typostrap-distribution
+    - docker pull million12/php-testing
+    - docker pull million12/neos-protobrew-distribution
 
   post:
     # Launch DB backend
@@ -24,7 +24,7 @@ dependencies:
 test:
   override:
     # ######################################################
-    # Run Typostrap Neos container, which includes
+    # Run Neos CMS container, which includes
     # M12.Foundation / M12.FoundationSite packages
     # and do some basics checks.
     # ######################################################
@@ -36,7 +36,7 @@ test:
         --env="T3APP_VHOST_NAMES=neos dev.neos behat.dev.neos" \
         --env="T3APP_DO_INIT_TESTS=true" \
         --env="T3APP_ALWAYS_DO_PULL=true" \
-        million12/neos-typostrap-distribution " \
+        million12/neos-protobrew-distribution " \
           su www -c \"
             cd ~/neos; \
             composer update m12/*; \
@@ -49,7 +49,7 @@ test:
         "
     - docker logs -f neos > ${CIRCLE_ARTIFACTS}/docker-neos.log 2>&1:
         background: true
-    # Wait till TYPO3 Neos is fully configured
+    # Wait till Neos CMS is fully configured
     - while true; do if grep "nginx entered RUNNING state" ${CIRCLE_ARTIFACTS}/docker-neos.log; then break; else sleep 1; fi done
     
     # Test: do basic front-end tests 
@@ -59,7 +59,7 @@ test:
     
     # Run unit tests:
     - |
-      docker run -ti --volumes-from=neos --link=neos:web --link=db:db million12/behat-selenium "
+      docker run -ti --volumes-from=neos --link=neos:web --link=db:db million12/php-testing "
         env && \
         echo \$WEB_PORT_80_TCP_ADDR \$WEB_ENV_T3APP_VHOST_NAMES >> /etc/hosts && cat /etc/hosts && \
         su www -c \"
@@ -70,7 +70,7 @@ test:
       "
     # Run functional tests:
     - |
-      docker run -ti --volumes-from=neos --link=neos:web --link=db:db million12/behat-selenium "
+      docker run -ti --volumes-from=neos --link=neos:web --link=db:db million12/php-testing "
         env && \
         echo \$WEB_PORT_80_TCP_ADDR \$WEB_ENV_T3APP_VHOST_NAMES >> /etc/hosts && cat /etc/hosts && \
         su www -c \"
