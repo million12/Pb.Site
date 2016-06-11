@@ -1,26 +1,26 @@
 .slick-list {
-	// Remove background image, override it with FA spinner icon
-	.slick-loading & {
-		&:before {
-			@extend .fa;
-			@extend .fa-spin;
-			@extend .fa-lg;
-			content: $fa-var-spinner;
-			position: absolute;
-			margin-top: 1%;
-			margin-left: 1%;
-		}
-		background: transparent none;
-	}
+    // Remove background image, override it with FA spinner icon
+    .slick-loading & {
+        &:before {
+            @extend .fa;
+            @extend .fa-spin;
+            @extend .fa-lg;
+            content: $fa-var-spinner;
+            position: absolute;
+            margin-top: 1%;
+            margin-left: 1%;
+        }
+        background: transparent none;
+    }
 }
 
-.slick-prev:before, 
+.slick-prev:before,
 .slick-next:before {
-	font-size: 21px;
+    font-size: 21px;
 }
 
 .slick-slide {
-	figure {
-		margin: 0; // By default TYPO3 Neos renders <img> inside <figure> which has margin set. Reset this margin...
-	}
+    figure {
+        margin: 0; // By default TYPO3 Neos renders <img> inside <figure> which has margin set. Reset this margin...
+    }
 }

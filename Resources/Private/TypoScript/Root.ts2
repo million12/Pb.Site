@@ -1,33 +1,33 @@
-include: Neos/*.ts2
+#include: Neos/*.ts2
 
 /**
  * Root TypoScript template for the site
  */
 page = Page {
-	@override.templateMeta      = 'resource://M12.FoundationSite/Private/Templates/Page/Meta.html'
-	@override.templateDefault   = 'resource://M12.FoundationSite/Private/Templates/Page/Page.html'
+	@override.templateMeta      = 'resource://Pb.Site/Private/Templates/Page/Meta.html'
+	@override.templateDefault   = 'resource://Pb.Site/Private/Templates/Page/Page.html'
 	@override.isRootPage        = ${q(node).property('_identifier') == q(site).property('_identifier')}
 
 	// Page type (the part after :), all lowercase
 	@override.pageType          = ${String.toLowerCase(String.substr(q(node).property('_nodeType.name'), 1+String.lastIndexOf(q(node).property('_nodeType.name'), ':')))}
 	@override.pageLayout        = ${q(node).property('layout') != null && q(node).property('layout') != '' ? q(node).property('layout') : q(node).parents('[subpageLayout]').first().property('subpageLayout')}
-	
+
 	// Do we have any content on the page?
 	@override.mainNodesCount    = ${q(node).children('main').children().count()}
-	
+
 	// Prepare no content notice
 	@override.noContentNotice = TYPO3.TypoScript:Template {
-		templatePath = 'resource://M12.FoundationSite/Private/Templates/Page/NoContentNotice.html'
+		templatePath = 'resource://Pb.Site/Private/Templates/Page/NoContentNotice.html'
 		node = ${node}
 	}
-	
+
 	head {
 		metadata = TYPO3.TypoScript:Template {
 			templatePath = ${templateMeta}
 			sectionName  = 'metadata'
 			@position    = 'start'
 		}
-		
+
 		stylesheets = TYPO3.TypoScript:Template {
 			templatePath = ${templateMeta}
 			sectionName = 'stylesheets'
@@ -45,12 +45,12 @@ page = Page {
 			2 = ${q(site).property('_nodeData.path')!=q(node).property('_nodeData.path') ? q(node).property('customHeadCode') : null}
 			@position = 'end'
 		}
-		
+
 		titleTag.content = ${q(documentNode).parents().get() ? q(node).property('title') + ' - ' + q(site).property('title') : q(site).property('title')}
 	}
-	
+
 	bodyTag {
-		attributes.class.noMainContent = ${mainNodesCount ? '' : 'no-main-content'}
+		attributes.class.noMainContent = ${mainNodesCount ? '' : 'pb-no-main-content'}
 	}
 
 	body {
@@ -58,25 +58,34 @@ page = Page {
 		sectionName = 'body'
 		pageType = ${pageType}
 		pageLayout = ${pageLayout}
-		
-#		parts {
-#			menu = Menu
-#			breadcrumb = Breadcrumb
-#		}
+
 		content {
 			top = ContentCollection {
 				nodePath = ${q(site).children('top').property('_path')}
 				@cache.entryIdentifier.documentNode = ${documentNode}
 			}
+
 			// The default content section
 			main = PrimaryContent {
 				nodePath = 'main'
+
+				// Add custom CSS class in the BE to indicate empty CC container
+				// so we can show 'Click here to add content' message using CSS styling.
+				prototype(TYPO3.Neos:ContentCollection) {
+					attributes.class.@process.addEmptyClass {
+						@if.noContent = ${mainNodesCount == 0 && node.context.workspace.name != 'live'}
+						expression = ${value + ' pb-neos-contentcollection-empty'}
+					}
+				}
+
 				// In case there's no any content on the main page, show an appropriate info.
 				// Otherwise empty/blank page looks like something is not right, which is not true.
 				@process.noContentNotice {
+					@if.isFrontend = ${node.context.workspace.name == 'live'}
 					expression = ${value + (isRootPage && mainNodesCount == 0 ? noContentNotice : null)}
 				}
 			}
+
 			footer = ContentCollection {
 				nodePath = ${q(site).children('footer').property('_path')}
 				@cache.entryIdentifier.documentNode = ${documentNode}

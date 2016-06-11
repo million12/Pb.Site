@@ -2,6 +2,9 @@
 $fa-font-path: '../Fonts';
 $fa-font-family-name: 'FA';
 
+//
+$color-neos-blue: #00b5ff;
+
 // Slick.js settings
 $slick-font-family: 'FontAwesome';
 $slick-prev-character: '\f137' !default;
@@ -10,3 +13,7 @@ $slick-dot-character: '\f111' !default;
 $slick-arrow-color: #333;
 $slick-dot-color: #333;
 $slick-dot-size: 8px;
+
+// Foundation settings
+$paragraph-font-size: inherit;
+$paragraph-margin-bottom: .6rem;

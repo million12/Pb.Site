@@ -1,7 +1,9 @@
-# M12.FoundationSite - Neos CMS site package
-[![Circle CI](https://circleci.com/gh/million12/M12.FoundationSite.svg?style=svg)](https://circleci.com/gh/million12/M12.FoundationSite)
+# Pb.Site - Neos CMS site package
+[![Circle CI](https://circleci.com/gh/million12/Pb.Site.svg?style=svg)](https://circleci.com/gh/million12/Pb.Site)
 
-Site package which works together with [M12.Foundation](https://github.com/million12/M12.Foundation) plugin implementing [Zurb Foundation](http://foundation.zurb.com/) components.
+Site package which works together with [M12.Foundation](https://github.com/million12/M12.Foundation)
+and other plugins with UI/UX components.
+
 
 ## Usage
 
@@ -10,7 +12,7 @@ Include in your main `composer.json` file:
     "require": {
         "your/other": "dependencies/here",
         "m12/neos-foundation": "dev-master",
-        "m12/neos-foundation-site": "dev-master"
+        "m12/neos-pb-site": "dev-master"
     },
 ```  
 and run `composer install`
@@ -18,14 +20,15 @@ and run `composer install`
 
 ## Build process
 
-Gulp is used to compile/minify styles and JavaScript. You need **npm** and **bower** tools installed.
+Gulp is used to compile/minify styles and JavaScript. You need **npm**
+and **bower** tools installed.
 
-From the M12.FoundationSite directory run:
+Inside `dev` container, run:
 
 ``` bash
 # Install bower and npm dependencies:
-npm install
 bower install
+npm install
 
 # Run complete build
 gulp build [--env=Production] # When run with --env=Production, will minify/compress files

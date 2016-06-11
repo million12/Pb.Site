@@ -8,14 +8,14 @@
 	</f:section>
 	
 	<f:section name="stylesheets">
-		<link rel="stylesheet" href="{f:uri.resource(path: 'Styles/App.css', package: 'M12.FoundationSite')}" media="all"/>
+		<link rel="stylesheet" href="{f:uri.resource(path: 'Styles/App.css', package: 'Pb.Site')}" media="all"/>
 		<f:if condition="{node.context.workspace.name} != 'live'">
-			<link rel="stylesheet" href="{f:uri.resource(path: 'Styles/Backend.css', package: 'M12.FoundationSite')}" media="all" />
+			<link rel="stylesheet" href="{f:uri.resource(path: 'Styles/Backend.css', package: 'Pb.Site')}" media="all" />
 		</f:if>
 	</f:section>
 	
 	<f:section name="headScripts">
-		<script src="{f:uri.resource(path: 'Scripts/App.js', package: 'M12.FoundationSite')}"></script>
+		<script src="{f:uri.resource(path: 'Scripts/App.js', package: 'Pb.Site')}"></script>
 	</f:section>
 </head>
 <body>

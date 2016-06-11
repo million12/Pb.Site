@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
- <site name="Foundation Site" state="1" siteResourcesPackageKey="M12.FoundationSite" siteNodeName="foundation-site">
+ <site name="Your Project" state="1" siteResourcesPackageKey="Pb.Site" siteNodeName="pb-site">
   <nodes formatVersion="2.0">
-   <node identifier="69f689f8-674b-486a-855e-a7796e2b2786" nodeName="foundation-site">
-    <variant sortingIndex="100" workspace="live" nodeType="M12.FoundationSite:Page" version="2" removed="" hidden="" hiddenInIndex="">
+   <node identifier="69f689f8-674b-486a-855e-a7796e2b2786" nodeName="pb-site">
+    <variant sortingIndex="100" workspace="live" nodeType="Pb.Site:Page" version="2" removed="" hidden="" hiddenInIndex="">
      <dimensions/>
      <accessRoles __type="array"/>
      <creationDateTime __type="object" __classname="DateTime">2015-12-20T20:42:09+00:00</creationDateTime>

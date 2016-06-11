@@ -8,23 +8,23 @@
 // Override the default @font-face definition, so we can use our own font-family name
 // source: _path.scss
 @font-face {
-	font-family: $fa-font-family-name;
-	src: url('#{$fa-font-path}/fontawesome-webfont.eot?v=#{$fa-version}');
-	src: url('#{$fa-font-path}/fontawesome-webfont.eot?#iefix&v=#{$fa-version}') format('embedded-opentype'),
-	url('#{$fa-font-path}/fontawesome-webfont.woff2?v=#{$fa-version}') format('woff2'),
-	url('#{$fa-font-path}/fontawesome-webfont.woff?v=#{$fa-version}') format('woff'),
-	url('#{$fa-font-path}/fontawesome-webfont.ttf?v=#{$fa-version}') format('truetype'),
-	url('#{$fa-font-path}/fontawesome-webfont.svg?v=#{$fa-version}#fontawesomeregular') format('svg');
-	//  src: url('#{$fa-font-path}/FontAwesome.otf') format('opentype'); // used when developing fonts
-	font-weight: normal;
-	font-style: normal;
+    font-family: $fa-font-family-name;
+    src: url('#{$fa-font-path}/fontawesome-webfont.eot?v=#{$fa-version}');
+    src: url('#{$fa-font-path}/fontawesome-webfont.eot?#iefix&v=#{$fa-version}') format('embedded-opentype'),
+    url('#{$fa-font-path}/fontawesome-webfont.woff2?v=#{$fa-version}') format('woff2'),
+    url('#{$fa-font-path}/fontawesome-webfont.woff?v=#{$fa-version}') format('woff'),
+    url('#{$fa-font-path}/fontawesome-webfont.ttf?v=#{$fa-version}') format('truetype'),
+    url('#{$fa-font-path}/fontawesome-webfont.svg?v=#{$fa-version}#fontawesomeregular') format('svg');
+    //  src: url('#{$fa-font-path}/FontAwesome.otf') format('opentype'); // used when developing fonts
+    font-weight: normal;
+    font-style: normal;
 }
 
 // Override the base .fa definition, so we can use our own font-family name
 // source: _core.scss
 .#{$fa-css-prefix} {
-	// Just override font-family. We cannot override whole definition,
-	// as it also contains font-size and others, which are overridden
-	// in .fa-2x, .fa-3x and others.
-	font-family: $fa-font-family-name;
+    // Just override font-family. We cannot override whole definition,
+    // as it also contains font-size and others, which are overridden
+    // in .fa-2x, .fa-3x and others.
+    font-family: $fa-font-family-name;
 }

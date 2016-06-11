@@ -1,36 +1,51 @@
-.neos {
-	// decrease font size in all lists (e.g. page tree, structure tree)
-	ul, ol, dl {
-		font-size: 0.9rem;
-	}
-
-	// Restore Neos colors after they were overridden by Foundation
-	label {
-		color: inherit;
-	}
-
-	// inspector: decrease spacing between fields
-	#neos-inspector .neos-inspector-form .neos-inspector-field > div {
-		padding-bottom: 8px;
-	}
-	// Increase the default height of 'Structure' panel when it's open
-	#neos-navigate-panel:not(.neos-navigate-panel-context-structure-open) #neos-node-tree {
-		height: 30%;
-	}
-	#neos-navigate-panel:not(.neos-navigate-panel-context-structure-open) #neos-context-structure {
-		height: 70%;
-	}
-}
-
 // Hide empty CC overlay, if parent has .neos-hide-empty-contentcollection-overlay class
 // or when using that extra container .extra-wrapper-required-by-neos-backend required
 // in few cases.
 .neos-hide-empty-contentcollection-overlay > .neos-empty-contentcollection-overlay,
 .extra-wrapper-required-by-neos-backend > .neos-empty-contentcollection-overlay {
-	display: none;
+    display: none;
+}
+
+// Note: intentionally add over-specificity with `div.neos` to easily override Neos defaults.
+div.neos {
+    // decrease font size in all lists (e.g. page tree, structure tree)
+    ul, ol, dl {
+        font-size: 0.9rem;
+    }
+
+    // Restore Neos colors after they were overridden by Foundation
+    label {
+        color: inherit;
+    }
+
+    // inspector: decrease spacing between fields
+    #neos-inspector .neos-inspector-form .neos-inspector-field > div {
+        padding-bottom: 8px;
+    }
+    // Increase the default height of 'Structure' panel when it's open
+    #neos-navigate-panel:not(.neos-navigate-panel-context-structure-open) #neos-node-tree {
+        height: 30%;
+    }
+    #neos-navigate-panel:not(.neos-navigate-panel-context-structure-open) #neos-context-structure {
+        height: 70%;
+    }
+}
+
+// Slightly modify default empty CC container
+div.neos.neos-empty-contentcollection-overlay {
+    margin: 1rem auto;
+    min-height: 25px;
+    outline-offset: 2px;
+    outline: 1px dashed $color-neos-blue;
+
+    &:hover, &:active, &:focus {
+        outline-color: darken($color-neos-blue, 20%);
+        outline-width: 1px;
+    }
 }
 
 body.neos-backend {
-	// Add top padding while in Neos backend, so the toolbar with [+] for adding new content is visible
-	padding-top: 2.2rem;
+    // Add top padding while in Neos backend, so the toolbar
+    // with [+] for adding new content is visible.
+    padding-top: 2rem;
 }

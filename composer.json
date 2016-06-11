@@ -1,8 +1,7 @@
 {
-    "name": "m12/neos-foundation-site",
+    "name": "m12/neos-pb-site",
     "type": "typo3-flow-site",
-    "description": "TYPO3 Neos site package for M12.Foundation",
-    "license": ["MIT"],
+    "description": "Neos CMS site package for M12.Foundation",
     "authors": [
         {
             "name": "Marcin Ryzycki",
@@ -24,7 +23,7 @@
     },
     "autoload": {
         "psr-0": {
-            "M12\\FoundationSite": "Classes"
+            "Pb\\Site": "Classes"
         }
     }
 }

@@ -3,19 +3,21 @@
 // some wrapping elements like grid, block grid, sliders
 // which have their own spacing etc, therefore this one is not necessary.
 figure {
-	margin-left: 0;
-	margin-right: 0;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 // Paragraph inside FIGCAPTION: reset margin
 figcaption {
-	p { // don't use '> p' here! In Neos BE we have extra DIV around it, as it's editable
-		margin: 0;
-	}
+    p { // don't use '> p' here! In Neos BE we have extra DIV around it, as it's editable
+        margin: 0;
+    }
 }
 
 // Used for thumbnail images. Foundation comes with a.th class, but we also
 // add this class if there's no href attribute for <a> element.
 .th--no-href {
-	&:hover { cursor: default; }
+    &:hover {
+        cursor: default;
+    }
 }
