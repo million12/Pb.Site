@@ -15,7 +15,7 @@ var isProduction = /prod/i.test(args.env);
 gulp.task('browser-sync', function () {
     browserSync.init({
         proxy: {
-            target: "http://dev.protobrew.io/"
+            target: 'http://neos-protobrew/'
         }
     });
 });
