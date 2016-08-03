@@ -2,7 +2,6 @@
     "name": "Pb.Site",
     "dependencies": {
         "foundation": "5.5.3",
-        "Font-Awesome": "~4.5",
-        "slick.js": "1.5.9"
+        "Font-Awesome": "~4.5"
     }
 }

@@ -7,6 +7,9 @@
     "url": "https://github.com/million12/M12.FoundationSite.git"
   },
   "private": true,
+  "dependencies": {
+    "slick-carousel": "1.6.0"
+  },
   "devDependencies": {
     "browser-sync": "2.11.1",
     "del": "2.2.0",
