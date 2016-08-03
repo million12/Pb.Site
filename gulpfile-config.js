@@ -6,14 +6,15 @@ module.exports = {
             'bower_components/foundation/js/vendor/modernizr.js',
             'bower_components/foundation/js/vendor/jquery.js',
             'bower_components/foundation/js/foundation.js',
-            'bower_components/slick.js/slick/slick.js'
+            'node_modules/slick-carousel/slick/slick.js'
         ],
         scripts: ['Resources/Private/Scripts/App.js'],
         fonts: ['bower_components/Font-Awesome/fonts/*.*'],
         includePaths: [
             'bower_components',
             'bower_components/foundation/scss',
-            'bower_components/Font-Awesome/scss'
+            'bower_components/Font-Awesome/scss',
+            'node_modules/slick-carousel/slick'
         ]
     },
     dest: {

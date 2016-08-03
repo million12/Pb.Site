@@ -1,5 +1,5 @@
 {
-    "name": "Pb.Site",
+    "name": "pb-site",
     "dependencies": {
         "foundation": "5.5.3",
         "Font-Awesome": "~4.5"
