@@ -20,21 +20,20 @@ and run `composer install`
 
 ## Build process
 
-Gulp is used to compile/minify styles and JavaScript. You need **npm**
-and **bower** tools installed.
+npm and gulp is used to compile/minify styles and JavaScript.
 
-Inside `dev` container, run:
+From `~/neos-site/Packages/Sites/Pb.Site` you can run:
 
 ``` bash
-# Install bower and npm dependencies:
-bower install
+# Install npm and bower dependencies:
 npm install
 
 # Run complete build
-gulp build [--env=Production] # When run with --env=Production, will minify/compress files
+npm run build
+npm run build:prod # to minify/compress files
 
 # Run gulp watch
-gulp watch
+npm watch
 ```
 
 
