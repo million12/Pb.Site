@@ -11,8 +11,9 @@ dependencies:
 
   override:
     - docker pull million12/mariadb
-    - docker pull million12/php-testing
     - docker pull million12/neos-protobrew-distribution
+    - docker pull million12/php-testing:
+        background: true
 
   post:
     # Launch DB backend
@@ -25,24 +26,24 @@ test:
   override:
     # ######################################################
     # Run Neos CMS container, which includes
-    # M12.Foundation / M12.FoundationSite packages
+    # M12.Foundation / M12.PbSite packages
     # and do some basics checks.
     # ######################################################
     - |
       docker run -d \
         --name=neos -p=8080:80 \
         --link=db:db \
-        --env="T3APP_NAME=neos" \
+        --env="T3APP_NAME=neos-site" \
         --env="T3APP_VHOST_NAMES=neos dev.neos behat.dev.neos" \
         --env="T3APP_DO_INIT_TESTS=true" \
         --env="T3APP_ALWAYS_DO_PULL=true" \
         million12/neos-protobrew-distribution " \
           su www -c \"
-            cd ~/neos; \
+            cd ~/neos-site; \
             composer update m12/*; \
-            cd Packages/Plugins/M12.Foundation; \
+            cd Packages/Sites/Pb.Site; \
             git fetch && git checkout --force $CIRCLE_BRANCH; \
-            cd ~/neos; \
+            cd ~/neos-site; \
             ./flow flow:cache:flush --force; \
             ./flow cache:warmup
           \"
@@ -60,10 +61,8 @@ test:
     # Run unit tests:
     - |
       docker run -ti --volumes-from=neos --link=neos:web --link=db:db million12/php-testing "
-        env && \
-        echo \$WEB_PORT_80_TCP_ADDR \$WEB_ENV_T3APP_VHOST_NAMES >> /etc/hosts && cat /etc/hosts && \
         su www -c \"
-          cd ~/neos && \
+          cd ~/neos-site && \
           echo -e '\n\n======== RUNNING UNIT TESTS =======\n\n' && \
           bin/phpunit -c Build/BuildEssentials/PhpUnit/UnitTests.xml --colors
         \"
@@ -74,7 +73,7 @@ test:
         env && \
         echo \$WEB_PORT_80_TCP_ADDR \$WEB_ENV_T3APP_VHOST_NAMES >> /etc/hosts && cat /etc/hosts && \
         su www -c \"
-          cd ~/neos && \
+          cd ~/neos-site && \
           echo -e '\n\n======== RUNNING FUNCTIONAL TESTS =======\n\n' && \
           bin/phpunit -c Build/BuildEssentials/PhpUnit/FunctionalTests.xml --colors
         \"
