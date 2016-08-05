@@ -33,7 +33,7 @@ npm run build
 npm run build:prod # to minify/compress files
 
 # Run gulp watch
-npm watch
+npm start
 ```
 
 

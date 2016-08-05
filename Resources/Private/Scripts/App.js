@@ -5,12 +5,12 @@
      * Check if we are in Neos back-end
      * @type {boolean}
      */
-    var IS_NEOS_BE = false;
+    let IS_NEOS_BE = false;
 
     /**
      * Pb.Site app
      */
-    var App = {
+    const App = {
         /**
          * Called on page load, to initialise all necessary components
          */
@@ -63,7 +63,7 @@
      */
     document.addEventListener('Neos.NodeCreated', function (e) {
         var createdNodeType = $(e.detail.element).data('node-_nodeType');
-        console.log('Neos.NodeCreated:', createdNodeType);
+        // console.log('Neos.NodeCreated:', createdNodeType);
 
         switch (createdNodeType) {
             // Some JavaScript components need to be fully re-initialised after inserting

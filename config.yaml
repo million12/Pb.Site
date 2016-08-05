@@ -1,0 +1,50 @@
+# Autoprefixer will make sure your CSS works with these browsers
+COMPATIBILITY:
+  - "last 2 versions"
+  - "ie >= 10"
+
+# Paths configuration
+PATHS:
+  # Sass src files
+  sassSrc:
+    - Resources/Private/Styles/*.scss
+
+  # Sass include paths
+  sassInclude:
+    - bower_components
+    - bower_components/foundation/scss
+    - bower_components/Font-Awesome/scss
+    - node_modules/slick-carousel/slick
+
+  # Assets to copy to dist.* locations
+  assets:
+    fonts: bower_components/Font-Awesome/fonts/*.*
+
+  dist:
+    fonts:  Resources/Public/Fonts
+    images: Resources/Public/Images
+    js:     Resources/Public/Scripts
+    styles: Resources/Public/Styles
+
+  watch:
+    styles: Resources/Private/Styles/**
+    js:     Resources/Private/Scripts/**
+    php:
+      - Configuration/**
+      - Resources/Private/{Templates,TypoScript}/**
+      - ../../Plugins/M12.Foundation/**
+
+  # Paths to clean before build
+  clean:
+    - Resources/Public/Styles/*
+    - Resources/Public/Scripts/*
+    - Resources/Public/Fonts/*
+
+  # Paths to JavaScript libraries, which are combined into one file
+  jsVendor:
+    - bower_components/foundation/js/vendor/modernizr.js
+    - bower_components/foundation/js/vendor/jquery.js
+    - bower_components/foundation/js/foundation.js
+    - node_modules/slick-carousel/slick/slick.js
+  js:
+    - Resources/Private/Scripts/App.js
