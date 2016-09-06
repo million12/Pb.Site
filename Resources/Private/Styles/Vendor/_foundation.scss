@@ -6,11 +6,22 @@ h1, h2, h3, h4, h5, h6 {
     color: inherit;
 }
 
+// Somehow IFRAME borders are not styled in Zurb Foundation and they give
+// examples with using 'frameborder="0"' attribute.
+iframe {
+    border: 0 none;
+}
+
 p {
     // Allow user overriding font style on parent elements
     color: inherit;
     //font-size: inherit;
     font-weight: inherit;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 //
@@ -36,13 +47,4 @@ p {
 //
 .magellan-container--top-bar {
     padding: 0;
-}
-
-//
-// Generics
-//
-// Somehow IFRAME borders are not styled in Zurb Foundation and they give
-// examples with using 'frameborder="0"' attribute.
-iframe {
-    border: 0 none;
 }
